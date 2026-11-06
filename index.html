@@ -136,9 +136,23 @@
   .meta-row span { display: block; line-height: 1.5; }
   .meta-row .l { text-align: left; font-weight: 700; } .meta-row .r { text-align: right; font-weight: 500; }
   .tag { margin: 2.4vh 0 0; max-width: 40em; font-family: var(--serif); font-style: italic; font-size: clamp(16px, 1.7vw, 27px); line-height: 1.25; color: #fff; }
-  .hint { margin: 1.6vh 0 0; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
-  .hint::after { content: ""; display: block; width: 1px; height: 18px; margin: 8px auto 0; background: #fff; animation: drip 1.9s ease-in-out infinite; transform-origin: top; }
-  @keyframes drip { 0%, 100% { transform: scaleY(.25); opacity: .5; } 50% { transform: scaleY(1); opacity: 1; } }
+  .hint { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 1.6vh 0 0; color: #fff; }
+  .hint span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+  .hint i { position: relative; display: block; width: 1px; height: 28px; background: #fff; transform-origin: top; }
+  .hint i::after { content: ""; position: absolute; left: 50%; bottom: -1px; width: 7px; height: 7px; border-right: 1px solid #fff; border-bottom: 1px solid #fff; transform: translate(-50%, -2px) rotate(45deg); transform-origin: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hint { animation: scrollCue 10s ease-in-out infinite; }
+    .hint i { animation: extendCue 2s cubic-bezier(.2,.8,.2,1) infinite; }
+  }
+  @keyframes scrollCue {
+    0%, 20% { opacity: 0; transform: translateY(8px); }
+    5%, 15% { opacity: 1; transform: translateY(0); }
+    20%, 100% { opacity: 0; transform: translateY(0); }
+  }
+  @keyframes extendCue {
+    0%, 100% { transform: scaleY(.25); opacity: .5; }
+    55% { transform: scaleY(1); opacity: 1; }
+  }
 
   /* ================= SECTION NAV: one flat line icon per section ================= */
   .nav { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(16px, 3.4vh, 30px)); translate: -50% 0; z-index: 50;
@@ -168,7 +182,7 @@
     .js .cover .tag, .js .cover .meta-row, .js .cover .hint { opacity: 0; transition: opacity .3s ease; }
     .js .cover.active .tag, .js .cover.active .meta-row, .js .cover.active .hint { opacity: 1; transition: opacity .9s ease 1s; }
   }
-  @media (prefers-reduced-motion: reduce) { .hint::after { animation: none; } .orb { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .hint i { transform: none; } .orb { transition: none; } }
 
   /* ================= SMALL / SHORT SCREENS: panels flow, snap stays gentle ================= */
   @media (max-width: 860px), (max-height: 600px) {
@@ -215,21 +229,18 @@
       </h1>
     </div>
     <p class="tag">I believe merchandisers don't need more data, they need faster signal.</p>
-    <p class="hint">scroll</p>
+    <p class="hint"><span>scroll</span><i aria-hidden="true"></i></p>
   </section>
 
   <!-- ============ 2. ABOUT ============ -->
   <section class="slide" id="s-about" data-group="about" aria-label="About me">
     <div class="stage">
-      <article class="win" style="--w:62;--i:0">
-        <div class="body cols" style="--cols:15em 1fr">
-          <figure class="photo"><img data-img="internship-workspace" width="908" height="1210" alt="Riddhima's laptop at her desk during the CTA Apparels internship."></figure>
-          <div>
-            <h2>About Me</h2>
-            <p class="lead">I'm <strong>Riddhima Kapoor</strong>, a Fashion Technology student at NIFT (<strong>BFT</strong>), with my foundation built in production merchandising. From there, my interest has moved toward the retail side of fashion &mdash; the business of it, where <strong>consumer behaviour</strong> and point-of-sale signal actually shape what gets bought and sold.</p>
-            <p class="lead">Along the way, I've picked up a habit of building things: tools and models that take scattered data and turn it into something people can actually act on.</p>
-            <p class="lead">That's the instinct I want to carry into <strong>retail merchandising</strong> and <strong>buying,</strong> where data meets the decisions that drive a brand forward.</p>
-          </div>
+      <article class="win" style="--w:58;--i:0">
+        <div class="body">
+          <h2>About Me</h2>
+          <p class="lead">I'm <strong>Riddhima Kapoor</strong>, a Fashion Technology student at NIFT (<strong>BFT</strong>), with my foundation built in production merchandising. From there, my interest has moved toward the retail side of fashion &mdash; the business of it, where <strong>consumer behaviour</strong> and point-of-sale signal actually shape what gets bought and sold.</p>
+          <p class="lead">Along the way, I've picked up a habit of building things: tools and models that take scattered data and turn it into something people can actually act on.</p>
+          <p class="lead">That's the instinct I want to carry into <strong>retail merchandising</strong> and <strong>buying,</strong> where data meets the decisions that drive a brand forward.</p>
         </div>
       </article>
     </div>
