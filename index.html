@@ -136,23 +136,36 @@
   .meta-row span { display: block; line-height: 1.5; }
   .meta-row .l { text-align: left; font-weight: 700; } .meta-row .r { text-align: right; font-weight: 500; }
   .tag { margin: 2.4vh 0 0; max-width: 40em; font-family: var(--serif); font-style: italic; font-size: clamp(16px, 1.7vw, 27px); line-height: 1.25; color: #fff; }
-  .hint { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(72px, 10vh, 96px)); translate: -50% 0; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 0; color: #fff; }
-  .hint span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
-  .hint i { position: relative; display: block; width: 1px; height: 28px; background: #fff; transform-origin: top; }
-  .hint i::after { content: ""; position: absolute; left: 50%; bottom: -1px; width: 7px; height: 7px; border-right: 1px solid #fff; border-bottom: 1px solid #fff; transform: translate(-50%, -2px) rotate(45deg); transform-origin: center; }
-  @media (prefers-reduced-motion: no-preference) {
-    .hint { animation: scrollCue 10s ease-in-out infinite; }
-    .hint i { animation: extendCue 2s cubic-bezier(.2,.8,.2,1) infinite; }
+  .hint {
+  position: absolute;
+  left: 50%;
+  bottom: 5vh;
+  z-index: 3;
+  margin: 0;
+  color: #fff;
+  animation: scrollCue 7s ease-in-out infinite;
+}
+
+.hint span {
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+@keyframes scrollCue {
+  0%, 75% {
+    opacity: 0;
+    transform: translate(-50%, 8px);
   }
-  @keyframes scrollCue {
-    0%, 20% { opacity: 0; transform: translateY(8px); }
-    5%, 15% { opacity: 1; transform: translateY(0); }
-    20%, 100% { opacity: 0; transform: translateY(0); }
+  80%, 94% {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
-  @keyframes extendCue {
-    0%, 100% { transform: scaleY(.25); opacity: .5; }
-    55% { transform: scaleY(1); opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -3px);
   }
+}
 
   /* ================= SECTION NAV: one flat line icon per section ================= */
   .nav { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(16px, 3.4vh, 30px)); translate: -50% 0; z-index: 50;
@@ -179,8 +192,9 @@
     .js .slide.active .win { opacity: 1; transform: none; transition: opacity .5s ease calc(var(--i, 0) * .12s + .05s), transform .7s cubic-bezier(.2,.8,.2,1) calc(var(--i, 0) * .12s + .05s); }
     .js [data-chars] .ci { display: inline-block; opacity: 0; transform: translateY(.3em) scale(.7) rotate(-5deg); transition: opacity .3s ease, transform .3s ease; }
     .js .slide.active [data-chars] .ci { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--ci, 0) * .07s + .1s), transform .9s cubic-bezier(.34,1.5,.6,1) calc(var(--ci, 0) * .07s + .1s); }
-    .js .cover .tag, .js .cover .meta-row, .js .cover .hint { opacity: 0; transition: opacity .3s ease; }
-    .js .cover.active .tag, .js .cover.active .meta-row, .js .cover.active .hint { opacity: 1; transition: opacity .9s ease 1s; }
+    .js .cover .tag, .js .cover .meta-row { opacity: 0; transition: opacity .3s ease; }
+
+.js .cover.active .tag, .js .cover.active .meta-row { opacity: 1; transition: opacity .9s ease 1s; }
   }
   @media (prefers-reduced-motion: reduce) { .hint i { transform: none; } .orb { transition: none; } }
 
@@ -229,7 +243,7 @@
     </h1>
     </div>
     <p class="tag">I believe merchandisers don't need more data, they need faster signal.</p>
-    <p class="hint"><span>scroll</span><i aria-hidden="true"></i></p>
+    <p class="hint"><span>SCROLL</span></p>
   </section>
 
   <!-- ============ 2. ABOUT ============ -->
