@@ -130,6 +130,8 @@
   .hero-block { position: relative; display: inline-block; }
   .hero { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(30px, min(5vw, 12vh), 100px); line-height: .95; letter-spacing: -.02em; color: var(--cream); padding: 0 .06em; }
   .hero-line { display: block; white-space: nowrap; }
+  .hero-line.detail { margin-top: .45em; font-family: var(--sans); font-style: normal; font-size: clamp(11px, 1.1vw, 17px); font-weight: 500; line-height: 1.35; letter-spacing: .1em; color: var(--ink); }
+  .hero-line.detail + .hero-line.detail { margin-top: .2em; }
   .spark { position: absolute; right: 11%; top: 4%; width: clamp(18px, 3.2vw, 44px); height: auto; fill: none; stroke: var(--cream); stroke-width: 1.6; stroke-linejoin: round; }
   .meta-row { display: flex; justify-content: space-between; gap: 2em; margin-top: .6em; font-size: clamp(10px, .95vw, 15px); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
   .meta-row span { display: block; line-height: 1.5; }
@@ -209,8 +211,8 @@
     <div class="hero-block">
       <h1 class="hero">
         <span class="hero-line" data-chars>Riddhima Kapoor</span>
-        <span class="hero-line" data-chars>NIFT I BFT</span>
-        <span class="hero-line" data-chars>Retail Merchandising Consumer Behaviour Analytics</span>
+        <span class="hero-line detail" data-chars>NIFT I BFT</span>
+        <span class="hero-line detail" data-chars>Retail Merchandising Consumer Behaviour Analytics</span>
       </h1>
       <svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.6 12.4L37 20l-12.4 4.6L20 37l-4.6-12.4L3 20l12.4-4.6z"/></svg>
     </div>
