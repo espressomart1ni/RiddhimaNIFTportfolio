@@ -128,17 +128,16 @@
   /* ================= COVER ================= */
   .cover { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 6vh; }
   .hero-block { position: relative; display: inline-block; }
-  .hero { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(30px, min(5vw, 12vh), 100px); line-height: .95; letter-spacing: -.02em; color: var(--cream); padding: 0 .06em; }
+  .hero { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(30px, min(5vw, 12vh), 100px); line-height: .95; letter-spacing: -.02em; color: #fff; padding: 0 .06em; }
   .hero-line { display: block; white-space: nowrap; }
-  .hero-line.detail { margin-top: .45em; font-family: var(--sans); font-style: normal; font-size: clamp(11px, 1.1vw, 17px); font-weight: 500; line-height: 1.35; letter-spacing: .1em; color: var(--ink); }
+  .hero-line.detail { margin-top: .45em; font-family: var(--sans); font-style: normal; font-size: clamp(11px, 1.1vw, 17px); font-weight: 500; line-height: 1.35; letter-spacing: .1em; color: #fff; }
   .hero-line.detail + .hero-line.detail { margin-top: .2em; }
-  .spark { position: absolute; right: 11%; top: 4%; width: clamp(18px, 3.2vw, 44px); height: auto; fill: none; stroke: var(--cream); stroke-width: 1.6; stroke-linejoin: round; }
-  .meta-row { display: flex; justify-content: space-between; gap: 2em; margin-top: .6em; font-size: clamp(10px, .95vw, 15px); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+  .meta-row { display: flex; justify-content: space-between; gap: 2em; margin-top: .6em; font-size: clamp(10px, .95vw, 15px); letter-spacing: .1em; text-transform: uppercase; color: #fff; }
   .meta-row span { display: block; line-height: 1.5; }
   .meta-row .l { text-align: left; font-weight: 700; } .meta-row .r { text-align: right; font-weight: 500; }
-  .tag { margin: 2.4vh 0 0; max-width: 40em; font-family: var(--serif); font-style: italic; font-size: clamp(16px, 1.7vw, 27px); line-height: 1.25; color: var(--ink); }
-  .hint { margin: 1.6vh 0 0; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
-  .hint::after { content: ""; display: block; width: 1px; height: 18px; margin: 8px auto 0; background: var(--ink); animation: drip 1.9s ease-in-out infinite; transform-origin: top; }
+  .tag { margin: 2.4vh 0 0; max-width: 40em; font-family: var(--serif); font-style: italic; font-size: clamp(16px, 1.7vw, 27px); line-height: 1.25; color: #fff; }
+  .hint { margin: 1.6vh 0 0; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+  .hint::after { content: ""; display: block; width: 1px; height: 18px; margin: 8px auto 0; background: #fff; animation: drip 1.9s ease-in-out infinite; transform-origin: top; }
   @keyframes drip { 0%, 100% { transform: scaleY(.25); opacity: .5; } 50% { transform: scaleY(1); opacity: 1; } }
 
   /* ================= SECTION NAV: one flat line icon per section ================= */
@@ -166,8 +165,8 @@
     .js .slide.active .win { opacity: 1; transform: none; transition: opacity .5s ease calc(var(--i, 0) * .12s + .05s), transform .7s cubic-bezier(.2,.8,.2,1) calc(var(--i, 0) * .12s + .05s); }
     .js [data-chars] .ci { display: inline-block; opacity: 0; transform: translateY(.3em) scale(.7) rotate(-5deg); transition: opacity .3s ease, transform .3s ease; }
     .js .slide.active [data-chars] .ci { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--ci, 0) * .07s + .1s), transform .9s cubic-bezier(.34,1.5,.6,1) calc(var(--ci, 0) * .07s + .1s); }
-    .js .cover .tag, .js .cover .meta-row, .js .cover .hint, .js .cover .spark { opacity: 0; transition: opacity .3s ease; }
-    .js .cover.active .tag, .js .cover.active .meta-row, .js .cover.active .hint, .js .cover.active .spark { opacity: 1; transition: opacity .9s ease 1s; }
+    .js .cover .tag, .js .cover .meta-row, .js .cover .hint { opacity: 0; transition: opacity .3s ease; }
+    .js .cover.active .tag, .js .cover.active .meta-row, .js .cover.active .hint { opacity: 1; transition: opacity .9s ease 1s; }
   }
   @media (prefers-reduced-motion: reduce) { .hint::after { animation: none; } .orb { transition: none; } }
 
@@ -212,9 +211,8 @@
       <h1 class="hero">
         <span class="hero-line" data-chars>Riddhima Kapoor</span>
         <span class="hero-line detail" data-chars>NIFT I BFT</span>
-        <span class="hero-line detail" data-chars>Retail Merchandising Consumer Behaviour Analytics</span>
+        <span class="hero-line detail" data-chars>Retail Merchandising&nbsp;&nbsp;Consumer Behaviour Analytics</span>
       </h1>
-      <svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.6 12.4L37 20l-12.4 4.6L20 37l-4.6-12.4L3 20l12.4-4.6z"/></svg>
     </div>
     <p class="tag">I believe merchandisers don't need more data, they need faster signal.</p>
     <p class="hint">scroll</p>
